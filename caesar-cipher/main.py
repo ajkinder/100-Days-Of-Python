@@ -41,3 +41,4 @@ while is_running:
     play_input = input("\nDo you want to encode or decode another message?\n").lower()
     if play_input == "no":
         is_running = False
+        print("Goodbye!")
