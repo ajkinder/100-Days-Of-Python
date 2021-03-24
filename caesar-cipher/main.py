@@ -12,22 +12,15 @@ shift = int(input("Type the shift number:\n"))
 
 
 # MARK - Function declarations
-def encrypt(plain_message, shift_by):
-    encoded_message = ""
-    for letter in plain_message:
-        encoded_message += alphabet[alphabet.index(letter) + shift_by]
-    print(f"The encrypted text is {encoded_message}")
+def caesar(input_text, shift_by, cipher_direction):
+    return_message = ""
+    if cipher_direction == "decode":
+        shift_by *= -1
+
+    for letter in input_text:
+        return_message += alphabet[alphabet.index(letter) + shift_by]
+    print(f"The {cipher_direction}d text is {return_message}")
 
 
-def decrypt(cypher_message, shift_by):
-    decoded_message = ""
-    for letter in cypher_message:
-        decoded_message += alphabet[alphabet.index(letter) - shift_by]
-    print(f"The decrpted text is {decoded_message}")
-
-
-if direction == "encode":
-    encrypt(plain_message=text, shift_by=shift)
-elif direction == "decode":
-    decrypt(cypher_message=text, shift_by=shift)
-
+# Call Caesar
+caesar(input_text=text, shift_by=shift, cipher_direction=direction)
