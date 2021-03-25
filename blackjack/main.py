@@ -17,14 +17,20 @@ import random
 
 
 def deal_card():
-    """Returns a random card from the deck."""
+    """
+    Returns a random card from the deck.
+    """
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     card = random.choice(cards)
     return card
 
 
 def calculate_score(cards):
-    """Take a list of cards and return the score calculated from the cards"""
+    """
+    Take a list of cards and return the score calculated from the cards.
+    :param cards: list of cards
+    :return: Sum of cards, accounting for the value of Ace(11) being either a 1 or 11
+    """
     if sum(cards) == 21 and len(cards) == 2:
         return 0
     if 11 in cards and sum(cards) > 21:
@@ -34,9 +40,12 @@ def calculate_score(cards):
 
 
 def compare(user_score, computer_score):
-    # Bug fix. If you and the computer are both over, you lose.
+    """
+    :param user_score: List of user cards
+    :param computer_score: List of computer cards
+    """
     if user_score > 21 and computer_score > 21:
-        return "You went over. You lose 😤"
+        return "You both went over. It's a draw 😤"
 
     if user_score == computer_score:
         return "Draw 🙃"
@@ -90,5 +99,5 @@ def play_game():
 
 
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
-    clear()
+    print("\n" * 10)
     play_game()
